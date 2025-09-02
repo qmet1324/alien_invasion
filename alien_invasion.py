@@ -42,6 +42,8 @@ class AlienInvasion:
         """Respond to keypresses"""
         if event.key == pygame.K_ESCAPE:
             sys.exit()
+        if event.key == pygame.K_f:
+            pygame.display.toggle_fullscreen()
         if event.key == pygame.K_RIGHT:
             self.ship.moving_right = True
         if event.key == pygame.K_LEFT:
