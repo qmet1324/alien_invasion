@@ -75,6 +75,7 @@ class AlienInvasion:
             self.settings.initialize_dynamic_settings()
             self.game_stats.reset_stats()
             self.scoreboard.prep_score()
+            self.scoreboard.prep_level()
             self.game_active = True
 
             # Get rid of any remaining bullets and aliens.
@@ -219,6 +220,10 @@ class AlienInvasion:
             self.bullets.empty()
             self._create_fleet()
             self.settings.increase_speed()
+
+            # Increase level
+            self.game_stats.level += 1
+            self.scoreboard.prep_level()
 
     def _update_screen(self):
         """Update the images on the screen, and flip to the new screen."""
