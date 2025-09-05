@@ -87,7 +87,7 @@ class AlienInvasion:
         """Respond to keypresses."""
         if event.key == pygame.K_ESCAPE:
             sys.exit()
-        elif event.key == pygame.K_SPACE:
+        elif event.key == pygame.K_SPACE and self.game_active:
             self._fire_bullet()
         elif event.key == pygame.K_f:
             pygame.display.toggle_fullscreen()
@@ -206,6 +206,7 @@ class AlienInvasion:
             # Destroy existing bullets and create a new fleet.
             self.bullets.empty()
             self._create_fleet()
+            self.settings.increase_speed()
 
     def _update_screen(self):
         """Update the images on the screen, and flip to the new screen."""
